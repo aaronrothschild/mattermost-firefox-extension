@@ -18,6 +18,7 @@ This project demonstrates how to write a Firefox extension that uses OAuth 2.0 t
 2. Create an OAuth 2.0 app on your Mattermost instance [with these instructions](https://docs.mattermost.com/developer/oauth-2-0-applications.html)
     * Make sure to copy the Client ID after the app is created
     * Optionally, you can mark the app as trusted so users do not need to click "Allow" for the app when they log in
+    * Set the callback URL to `https://2c820e1da8d7d18c48930c1cfe3780ee33b51d15.extensions.allizom.org/`
 
 3. Configure the extension by modifying the constants in `src/app/views/App.js`:
     * Set `MATTERMOST_URL` to the URL for your Mattermost instance
@@ -32,11 +33,11 @@ This project demonstrates how to write a Firefox extension that uses OAuth 2.0 t
 
 5. Add the extension to Firefox:
     * Go to `about:debugging` in your Firefox browser
-    * Click "Load unpacked" and navigate to and select your `mattermost-firefox-extension` directory
+    * Click "Load Temporary Add-On..." and navigate to and select your `mattermost-firefox-extension` directory and select the `webpack.config.js` file
 
 6. Allow cross-origin requests from your Firefox extension to Mattermost:
    * Get the ID of your extension by looking at it's entry on `about:debugging`
-    * Set `ServiceSettings.AllowCorsFrom` in your `config.json` to `moz-extension://<your-extension-id>`, e.g. `moz-extension://ajfkdfomehaklgdhggbfhhicchlangjp`
+    * Set `ServiceSettings.AllowCorsFrom` in your `config.json` to `moz-extension://<your-extension-id>`, e.g. `moz-extension://mattermost-firefox-extension@mattermost.com`
     * Restart your Mattermost server
 
 7. Use the extension
