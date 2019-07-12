@@ -38,6 +38,11 @@ This project demonstrates how to write a Firefox extension that uses OAuth 2.0 t
 6. Allow cross-origin requests from your Firefox extension to Mattermost:
    * Get the ID of your extension by looking at it's entry on `about:debugging`
     * Set `ServiceSettings.AllowCorsFrom` in your `config.json` to `moz-extension://<your-extension-id>`, e.g. `moz-extension://mattermost-firefox-extension@mattermost.com`
+    * In config.json set:
+    *  "EnableUserAccessTokens": true,
+    *  "AllowCorsFrom": "moz-extension://<<UUID SHOWN IN FIREFOX UI in about:debugging>>",
+    *  "CorsExposedHeaders": "",
+    *  "CorsAllowCredentials": true,
     * Restart your Mattermost server
 
 7. Use the extension
